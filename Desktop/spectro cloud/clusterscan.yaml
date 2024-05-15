@@ -1,0 +1,15 @@
+apiVersion: example.com/v1
+kind: ClusterScan
+metadata:
+  name: my-scan
+spec:
+  name: "MyScan"
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    template:
+      spec:
+        containers:
+        - name: my-container
+          image: busybox
+          command: ["echo", "Hello, World!"]
+        restartPolicy: OnFailure
